@@ -1,9 +1,13 @@
 # depslib dependency file v1.0
-1690041710 source:c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\main.cpp
+1690068092 source:c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\main.cpp
 	<iostream>
 	<windows.h>
 	"rlutil.h"
+	"Tools.h"
 	"PianoKeys.h"
+	"PianoCout.h"
+	"LogoCout.h"
+	"HintCout.h"
 
 1571584339 c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\include\rlutil.h
 	<iostream>
@@ -22,7 +26,17 @@
 1690039817 c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\include\pianokeys.h
 	<windows.h>
 
+1690063394 c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\include\pianocout.h
+
 1690042307 source:c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\src\pianokeys.cpp
 	<iostream>
 	"PianoKeys.h"
+
+1690063394 c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\include\logocout.h
+
+1690069414 c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\include\hintcout.h
+	"PianoKeys.h"
+
+1690066627 c:\users\ailin\onedrive\documentos\github\piano-c\piano-c\include\tools.h
+	<iostream>
 

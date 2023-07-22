@@ -2,21 +2,22 @@
 using namespace std;
 #include<windows.h>
 #include "rlutil.h"
+#include "Tools.h"
 #include "PianoKeys.h"
+#include "PianoCout.h"
+#include "LogoCout.h"
+#include "HintCout.h"
 
 int main(){
 
-system("mode con: cols=80 lines=30");
+system("mode con: cols=80 lines=22");
 system("color 8F");
-
-        cout<<"\n                           Piano-C!\n\n";
-        cout<<"o Keys:\n";
-        cout<<"    DO#: 'W' | RE#: 'E'           FA#: 'T' | SOL#: 'Y' | LA#: 'U'\n";
-        cout<<"DO: 'A' | RE: 'S' | MI: 'D' | FA: 'F' | SOL: 'G'  |  LA: 'H' | SI: 'J'\n\n";
-        cout<<"o change duration:\n";
-        cout<<" 'space': Increment duration.\n 'N': Default duration.\n 'L': Low duration.\n\n";
-        cout<<"Press 'Esc' for close.\n\n";
-
+rlutil::hidecursor();
+//Logo:
+    Logo();
+//Piano:
+    Piano12Keys();
+//Constructor:
     PianoKeys PianoKey[12];
         PianoKey[0].DO();
         PianoKey[1].DO_S();
@@ -36,29 +37,31 @@ system("color 8F");
     int8_t music=14;
 
     bool ejecution=true;
-
+    int key=16;
     while(ejecution){
-        int key=rlutil::getkey();
+//Hint:
+     Hint(duration, PianoKey, key);
+        key=ReturnKey(rlutil::getkey());
         switch(key){
-        case 97 :Beep(PianoKey[0].getFrequency(),duration);break;//DO
-        case 119:Beep(PianoKey[1].getFrequency(),duration);break;//DO#
-        case 115:Beep(PianoKey[2].getFrequency(),duration);break;//RE
-        case 101:Beep(PianoKey[3].getFrequency(),duration);break;//RE#
-        case 100:Beep(PianoKey[4].getFrequency(),duration);break;//MI
-        case 102:Beep(PianoKey[5].getFrequency(),duration);break;//FA
-        case 116:Beep(PianoKey[6].getFrequency(),duration);break;//FA#
-        case 103:Beep(PianoKey[7].getFrequency(),duration);break;//SOL
-        case 121:Beep(PianoKey[8].getFrequency(),duration);break;//SOL#
-        case 104:Beep(PianoKey[9].getFrequency(),duration);break;//LA
-        case 117:Beep(PianoKey[10].getFrequency(),duration);break;//LA#
-        case 106:Beep(PianoKey[11].getFrequency(),duration);break;//SI
-        case 32 :duration+=100;break;//space -Increment duration.
-        case 110:duration=300;break;//'N'    -Default duration.
-        case 108:duration-=100;break;//'L'   -Low duration.
-        case   0:ejecution=false;break;//End program.
-        default :cout<<"NOPE "<<music<<" ";break;
+        case 0 :Beep(PianoKey[0].getFrequency(),duration);break;//DO
+        case 1 :Beep(PianoKey[1].getFrequency(),duration);break;//DO#
+        case 2 :Beep(PianoKey[2].getFrequency(),duration);break;//RE
+        case 3 :Beep(PianoKey[3].getFrequency(),duration);break;//RE#
+        case 4 :Beep(PianoKey[4].getFrequency(),duration);break;//MI
+        case 5 :Beep(PianoKey[5].getFrequency(),duration);break;//FA
+        case 6 :Beep(PianoKey[6].getFrequency(),duration);break;//FA#
+        case 7 :Beep(PianoKey[7].getFrequency(),duration);break;//SOL
+        case 8 :Beep(PianoKey[8].getFrequency(),duration);break;//SOL#
+        case 9 :Beep(PianoKey[9].getFrequency(),duration);break;//LA
+        case 10:Beep(PianoKey[10].getFrequency(),duration);break;//LA#
+        case 11:Beep(PianoKey[11].getFrequency(),duration);break;//SI
+        case 12:duration+=100;break;//space -Increment duration.
+        case 13:duration =300;break;//'N'    -Default duration.
+        case 14:duration-=100;break;//'L'   -Low duration.
+        case 15:ejecution=false;break;//End program.
+        case 16:gotoxy(55,15);cout<<"NOPE "<<music;break;//Default.
         }
     }
-
+    gotoxy(1,19);
 return 0;
 }
