@@ -9,7 +9,13 @@ int main(){
 system("mode con: cols=80 lines=30");
 system("color 8F");
 
-        cout<<"\n\tPiano-C!\n";
+        cout<<"\n                           Piano-C!\n\n";
+        cout<<"o Keys:\n";
+        cout<<"    DO#: 'W' | RE#: 'E'           FA#: 'T' | SOL#: 'Y' | LA#: 'U'\n";
+        cout<<"DO: 'A' | RE: 'S' | MI: 'D' | FA: 'F' | SOL: 'G'  |  LA: 'H' | SI: 'J'\n\n";
+        cout<<"o change duration:\n";
+        cout<<" 'space': Increment duration.\n 'N': Default duration.\n 'L': Low duration.\n\n";
+        cout<<"Press 'Esc' for close.\n\n";
 
     PianoKeys PianoKey[12];
         PianoKey[0].DO();
@@ -46,9 +52,9 @@ system("color 8F");
         case 104:Beep(PianoKey[9].getFrequency(),duration);break;//LA
         case 117:Beep(PianoKey[10].getFrequency(),duration);break;//LA#
         case 106:Beep(PianoKey[11].getFrequency(),duration);break;//SI
-        case 32 :duration+=100;break;//space
-        case 110:duration=300;break;//'N'
-        case 108:duration-=100;break;//'L'
+        case 32 :duration+=100;break;//space -Increment duration.
+        case 110:duration=300;break;//'N'    -Default duration.
+        case 108:duration-=100;break;//'L'   -Low duration.
         case   0:ejecution=false;break;//End program.
         default :cout<<"NOPE "<<music<<" ";break;
         }

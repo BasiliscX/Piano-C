@@ -9,7 +9,7 @@ void PianoKeys::DO(){
 }
 void PianoKeys::DO_S(){
     _name="DO SHARP";
-    _frequency=275;
+    _frequency=277;
 }
 void PianoKeys::RE(){
     _name="RE";
